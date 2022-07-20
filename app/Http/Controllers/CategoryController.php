@@ -33,7 +33,7 @@ Category::insert([
   'user_id'=>Auth::user()->id,
   'created_at'=>Carbon::now()
 ]  );
-return Redirect()->back()->with('success','Category inserted successfully');
+return Redirect()->back()->with('success','User inserted successfully');
 
 
     }

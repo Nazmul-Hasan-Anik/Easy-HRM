@@ -6,8 +6,19 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
-
+use App\Http\Controllers\UserinfoController;
+use App\Http\Controllers\JobsController;
+use App\Http\Controllers\JobCategoryController;
+use App\Http\Controllers\PayGradeController;
+use App\Http\Controllers\EmploymentStatusController;
+use App\Http\Controllers\GeneralInfoController;
+use App\Http\Controllers\LocationsController;
+use App\Http\Controllers\QualController;
+use App\Http\Controllers\EducationController;
+use App\Http\Controllers\LicensesController;
+use App\Http\Controllers\LanguagesController;
 use App\Models\User;
+use App\Models\Pay_grades;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +76,82 @@ Route::get('designations',[DesignationController::class,'index'])->name('designa
 Route::put('designations',[DesignationController::class,'update']);
 Route::post('designations',[DesignationController::class,'store']);
 Route::delete('designations',[DesignationController::class,'destroy'])->name('designation.destroy');
+
+
+// UserInfo
+Route::get('userinfo',[UserinfoController::class,'allusers'])->name('all.users');
+Route::post('userinfo',[UserinfoController::class,'storeusers'])->name('store.users');
+Route::get('userinfo/{id}',[UserinfoController::class,'editusers'])->name('edit.users');
+Route::post('/userinfo/update/{id}', [UserinfoController::class, 'update'])->name("update.users");
+Route::get('userinfo/delete/{id}', [UserinfoController::class, 'delete'])->name("delete.user");
+
+//Job
+Route::get('jobs',[JobsController::class,'alljobs'])->name('all.jobs');
+Route::post('jobs',[JobsController::class,'storejobs'])->name('store.jobs');
+Route::get('jobs/{id}',[JobsController::class,'editjobs'])->name('edit.jobs');
+Route::post('/jobs/update/{id}', [JobsController::class, 'update'])->name("update.jobs");
+Route::get('jobs/delete/{id}', [JobsController::class, 'delete'])->name("delete.job");
+// Job Categories
+Route::get('job__categories',[JobCategoryController::class,'allcat'])->name('all.jobscat');
+Route::post('job__categories',[JobCategoryController::class,'storecat'])->name('store.cat');
+Route::get('job__categories/{id}',[JobCategoryController::class,'editcat'])->name('edit.cat');
+Route::post('job__categories/update/{id}', [JobCategoryController::class, 'update'])->name("update.cat");
+Route::get('job__categories/delete/{id}', [JobCategoryController::class, 'delete'])->name("delete.cat");
+
+//Pay Pay_grades
+Route::get('paygrade',[PayGradeController::class,'allpay'])->name('all.pay');
+Route::post('paygrade',[PayGradeController::class,'storepay'])->name('store.pay');
+Route::get('paygrade/{id}',[PayGradeController::class,'editpay'])->name('edit.pay');
+Route::post('paygrade/update/{id}', [PayGradeController::class, 'update'])->name("update.pay");
+Route::get('paygrade/delete/{id}', [PayGradeController::class, 'delete'])->name("delete.pay");
+
+//Employment_status
+Route::get('emp_stat',[EmploymentStatusController::class,'allstatus'])->name('all.status');
+Route::post('emp_stat',[EmploymentStatusController::class,'storestatus'])->name('store.status');
+Route::get('emp_stat/{id}',[EmploymentStatusController::class,'editstatus'])->name('edit.status');
+Route::get('emp_stat/delete/{id}', [EmploymentStatusController::class, 'delete'])->name("delete.status");
+Route::post('emp_stat/update/{id}', [EmploymentStatusController::class, 'update'])->name("update.status");
+
+//General Information
+Route::get('gen_info',[GeneralInfoController::class,'info'])->name('gen.info');
+Route::post('gen_info',[GeneralInfoController::class,'storeinfo'])->name('store.info');
+Route::get('gen_info/edit/{id}',[GeneralInfoController::class,'editinfo'])->name('edit.gen.info');
+Route::post('gen_info/update/{id}', [GeneralInfoController::class, 'update'])->name("update.gen.info");
+
+//Locations
+Route::get('locations',[LocationsController::class,'alllocations'])->name('all.locations');
+Route::post('locations',[LocationsController::class,'storelocations'])->name('store.locations');
+Route::get('locations/edit/{id}',[LocationsController::class,'editlocation'])->name('edit.locations');
+Route::post('locations/update/{id}', [LocationsController::class, 'update'])->name("update.locations");
+Route::get('locations/delete/{id}', [LocationsController::class, 'delete'])->name("delete.locations");
+
+//Skills
+Route::get('skills',[QualController::class,'allskills'])->name('all.skills');
+Route::post('skills',[QualController::class,'storeskills'])->name('store.skills');
+Route::get('skills/edit/{id}',[QualController::class,'editskills'])->name('edit.skills');
+Route::post('skills/update/{id}', [QualController::class, 'update'])->name("update.skills");
+Route::get('skills/delete/{id}', [QualController::class, 'delete'])->name("delete.skills");
+
+//Education
+Route::get('education',[EducationController::class,'alledu'])->name('all.education');
+Route::post('education',[EducationController::class,'storeedu'])->name('store.education');
+Route::get('education/edit/{id}',[EducationController::class,'editedu'])->name('edit.education');
+Route::post('education/update/{id}', [EducationController::class, 'update'])->name("update.education");
+Route::get('education/delete/{id}', [EducationController::class, 'delete'])->name("delete.education");
+
+//Licenses
+Route::get('licenses',[LicensesController::class,'alllic'])->name('all.licenses');
+Route::post('licenses',[LicensesController::class,'storelic'])->name('store.licenses');
+Route::get('licenses/edit/{id}',[LicensesController::class,'editlic'])->name('edit.licenses');
+Route::get('licenses/delete/{id}',[LicensesController::class,'deletelic'])->name('delete.licenses');
+Route::post('licenses/update/{id}',[LicensesController::class,'updatelic'])->name('update.licenses');
+
+//Languages
+Route::get('languages',[LanguagesController::class,'alllan'])->name('all.languages');
+Route::post('languages',[LanguagesController::class,'storelan'])->name('store.languages');
+Route::get('languages/edit/{id}',[LanguagesController::class,'editlan'])->name('edit.languages');
+Route::get('languages/delete/{id}',[LanguagesController::class,'deletelan'])->name('delete.languages');
+Route::post('languages/update/{id}',[LanguagesController::class,'updatelan'])->name('update.languages');
 
 
 
