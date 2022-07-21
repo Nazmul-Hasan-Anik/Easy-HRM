@@ -110,6 +110,16 @@
 
 
                         </div>
+                        <div class="sub-menu">
+                            <li >
+                                <a class="sidenav-item-link" href="{{route('all.dept')}}">
+                                    <span class="nav-text">Department</span>
+                                </a>
+                            </li>
+
+
+
+                        </div>
 
 
 
@@ -158,6 +168,38 @@
 
 
                         </div>
+
+                        <div class="sub-menu">
+                            <li >
+                                <a class="sidenav-item-link" href="{{route('all.membership')}}">
+                                    <span class="nav-text">Memberships</span>
+                                </a>
+                            </li>
+
+
+
+                        </div>
+
+
+                    </ul>
+                </li>
+                <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#nationalities" aria-expanded="false" aria-controls="pages">
+                        <i class="mdi mdi-image-filter-none"></i>
+                        <span class="nav-text">Nationalities</span> <b class="caret"></b>
+                    </a>
+                    <ul class="collapse" id="nationalities" data-parent="#sidebar-menu">
+                        <div class="sub-menu">
+                            <li >
+                                <a class="sidenav-item-link" href="{{route('all.nationalities')}}">
+                                    <span class="nav-text">Nationalities</span>
+                                </a>
+                            </li>
+
+
+
+                        </div>
+
 
 
 

@@ -17,6 +17,9 @@ use App\Http\Controllers\QualController;
 use App\Http\Controllers\EducationController;
 use App\Http\Controllers\LicensesController;
 use App\Http\Controllers\LanguagesController;
+use App\Http\Controllers\DeptController;
+use App\Http\Controllers\MembershipsController;
+use App\Http\Controllers\NationalitiesController;
 use App\Models\User;
 use App\Models\Pay_grades;
 
@@ -152,6 +155,27 @@ Route::post('languages',[LanguagesController::class,'storelan'])->name('store.la
 Route::get('languages/edit/{id}',[LanguagesController::class,'editlan'])->name('edit.languages');
 Route::get('languages/delete/{id}',[LanguagesController::class,'deletelan'])->name('delete.languages');
 Route::post('languages/update/{id}',[LanguagesController::class,'updatelan'])->name('update.languages');
+
+//Structure
+Route::get('dept',[DeptController::class,'alldept'])->name('all.dept');
+Route::post('dept',[DeptController::class,'storedept'])->name('store.dept');
+Route::get('dept/edit/{id}',[DeptController::class,'editdept'])->name('edit.dept');
+Route::get('dept/delete/{id}',[DeptController::class,'deletedept'])->name('delete.dept');
+Route::post('dept/delete/{id}',[DeptController::class,'updatedept'])->name('update.dept');
+
+//memberships
+Route::get('membership',[MembershipsController::class,'allmembership'])->name('all.membership');
+Route::post('membership',[MembershipsController::class,'storemembership'])->name('store.membership');
+Route::get('membership/edit/{id}',[MembershipsController::class,'editmembership'])->name('edit.membership');
+Route::get('membership/delete/{id}',[MembershipsController::class,'deletemembership'])->name('delete.membership');
+Route::post('membership/update/{id}',[MembershipsController::class,'updatemembership'])->name('update.membership');
+
+//Nationalities
+Route::get('nationalities',[NationalitiesController::class,'allnationalities'])->name('all.nationalities');
+Route::post('nationalities',[NationalitiesController::class,'storenationalities'])->name('store.nationalities');
+Route::get('nationalities/edit/{id}',[NationalitiesController::class,'editnationalities'])->name('edit.nationalities');
+Route::get('nationalities/delete/{id}',[NationalitiesController::class,'deletenationalities'])->name('delete.nationalities');
+Route::post('nationalities/update/{id}',[NationalitiesController::class,'updatenationalities'])->name('update.nationalities');
 
 
 
