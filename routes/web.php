@@ -20,6 +20,7 @@ use App\Http\Controllers\LanguagesController;
 use App\Http\Controllers\DeptController;
 use App\Http\Controllers\MembershipsController;
 use App\Http\Controllers\NationalitiesController;
+use App\Http\Controllers\EmpController;
 use App\Models\User;
 use App\Models\Pay_grades;
 
@@ -69,16 +70,7 @@ Route::get('brand/delete/{id}', [BrandsController::class, 'delete'])->name("dele
 Route::get('/multi/pic', [BrandsController::class, 'multipic'])->name("multi.image");
 Route::post('/multi/add', [BrandsController::class, 'StoreImg'])->name("store.img");
 
-//employe routes
-Route::get('departments',[DepartmentController::class,'index'])->name('departments');
-Route::post('departments',[DepartmentController::class,'store']);
-Route::put('departments',[DepartmentController::class,'update']);
-Route::delete('departments',[DepartmentController::class,'destroy'])->name('department.destroy');
 
-Route::get('designations',[DesignationController::class,'index'])->name('designations');
-Route::put('designations',[DesignationController::class,'update']);
-Route::post('designations',[DesignationController::class,'store']);
-Route::delete('designations',[DesignationController::class,'destroy'])->name('designation.destroy');
 
 
 // UserInfo
@@ -177,8 +169,9 @@ Route::get('nationalities/edit/{id}',[NationalitiesController::class,'editnation
 Route::get('nationalities/delete/{id}',[NationalitiesController::class,'deletenationalities'])->name('delete.nationalities');
 Route::post('nationalities/update/{id}',[NationalitiesController::class,'updatenationalities'])->name('update.nationalities');
 
-
-
+//Employes
+Route::get('emp',[EmpController::class,'allemp'])->name('all.emp');
+Route::post('emp',[EmpController::class,'storeemp'])->name('store.emp');
 
 
 
